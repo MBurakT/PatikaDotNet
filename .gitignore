@@ -1,0 +1,11 @@
+#VSCode
+*.vscode
+*.vs
+
+#CSharp
+*.nupkg
+*.sln
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
