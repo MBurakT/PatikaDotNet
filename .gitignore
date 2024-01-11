@@ -1,5 +1,4 @@
 #VSCode
-*.vscode
 *.vs
 
 #CSharp
