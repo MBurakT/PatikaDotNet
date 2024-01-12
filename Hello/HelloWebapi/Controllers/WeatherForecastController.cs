@@ -32,16 +32,22 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<WeatherForecast> Get()
+    public IEnumerable<WeatherForecast> Get([FromQuery] string? id)
     {
-        return Weathers;
+        if (string.IsNullOrEmpty(id)) return Weathers;
+
+        int intId = int.Parse(id);
+
+        if (intId > 0 && intId < 6) return [Weathers[intId - 1]];
+
+        return [];
     }
-    
+
     [HttpGet("{id:int}")]
-    public WeatherForecast Get(int id)
+    public WeatherForecast? Get(int id)
     {
         if (id > 0 && id < 6) return Weathers[id - 1];
 
-        return new WeatherForecast();
+        return null;
     }
 }
