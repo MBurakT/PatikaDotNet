@@ -1,4 +1,4 @@
-// dotnet run --project Hello/HelloWebapi/HelloWebapi.csproj --launch-profile https
+// dotnet watch run --project Hello/HelloWebapi/HelloWebapi.csproj --launch-profile https
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,7 +33,7 @@ public class Program
 
 
         app.MapControllers();
-
+        
         app.Run();
     }
 }
