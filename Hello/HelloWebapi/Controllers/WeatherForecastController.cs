@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace HelloWebapi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]s")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = ["Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"];
@@ -32,19 +32,17 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<WeatherForecast> Get([FromQuery] string? id)
+    public IEnumerable<WeatherForecast> GetWeatherForecasts([FromQuery] string? id)
     {
         if (string.IsNullOrEmpty(id)) return Weathers;
 
-        int intId = int.Parse(id);
+        if (!int.TryParse(id, out int intId) || intId < 1 || intId > 6) return [];
 
-        if (intId > 0 && intId < 6) return [Weathers[intId - 1]];
-
-        return [];
+        return [Weathers[intId - 1]];
     }
 
     [HttpGet("{id:int}")]
-    public WeatherForecast? Get(int id)
+    public WeatherForecast? GetWeatherForecastById(int id)
     {
         if (id > 0 && id < 6) return Weathers[id - 1];
 
