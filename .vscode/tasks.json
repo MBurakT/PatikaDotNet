@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Hello/HelloSln.sln",
+                "${workspaceFolder}/BookStore/BookStoreSln.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Hello/HelloSln.sln",
+                "${workspaceFolder}/BookStore/BookStoreSln.sln",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary;ForceNoAlign"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Hello/HelloSln.sln"
+                "${workspaceFolder}/BookStore/BookStoreSln.sln"
             ],
             "problemMatcher": "$msCompile"
         }
