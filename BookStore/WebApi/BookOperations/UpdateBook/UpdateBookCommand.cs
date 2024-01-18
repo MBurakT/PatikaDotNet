@@ -8,6 +8,7 @@ namespace WebApi.BookOperations.UpdateBook;
 public class UpdateBookCommand
 {
     private readonly BookStoreDbContext _context;
+    public int Id { get; set; }
     public UpdateBookModel BookModel { get; set; }
 
     public UpdateBookCommand(BookStoreDbContext context)
@@ -15,9 +16,9 @@ public class UpdateBookCommand
         _context = context;
     }
 
-    public void Handle(int id)
+    public void Handle()
     {
-        Book? book = _context.Books.SingleOrDefault(x => x.Id == id);
+        Book? book = _context.Books.SingleOrDefault(x => x.Id == Id);
 
         if (book == null) throw new Exception("Book does not exist!");
 

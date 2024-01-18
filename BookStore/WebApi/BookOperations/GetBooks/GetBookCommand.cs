@@ -9,15 +9,16 @@ namespace WebApi.BookOperations.GetBooks;
 class GetBookCommand
 {
     private readonly BookStoreDbContext _context;
+    public int Id { get; set; }
 
     public GetBookCommand(BookStoreDbContext context)
     {
         _context = context;
     }
 
-    public BooksViewModel Handle(int id)
+    public BooksViewModel Handle()
     {
-        Book? book = _context.Books.SingleOrDefault(x => x.Id == id);
+        Book? book = _context.Books.SingleOrDefault(x => x.Id == Id);
         if (book == null) throw new InvalidOperationException("Book does not exist!");
 
         return new BooksViewModel

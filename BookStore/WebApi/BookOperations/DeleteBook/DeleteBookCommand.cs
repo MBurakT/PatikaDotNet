@@ -8,15 +8,16 @@ namespace WebApi.BookOperations.DeleteBook;
 class DeleteBookCommand
 {
     private readonly BookStoreDbContext _context;
+    public int Id { get; set; }
 
     public DeleteBookCommand(BookStoreDbContext context)
     {
         _context = context;
     }
 
-    public void Handle(int id)
+    public void Handle()
     {
-        Book? book = _context.Books.SingleOrDefault(x => x.Id == id);
+        Book? book = _context.Books.SingleOrDefault(x => x.Id == Id);
 
         if (book == null) throw new Exception("Book does not exist!");
 
