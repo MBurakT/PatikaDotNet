@@ -1,5 +1,4 @@
 // dotnet watch run --project WebApi/WebApi.csproj
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
