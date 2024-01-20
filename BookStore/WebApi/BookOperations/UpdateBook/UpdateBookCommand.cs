@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using AutoMapper;
 using Webapi.Entities;
 using WebApi.DBOperations;
 
@@ -8,24 +9,22 @@ namespace WebApi.BookOperations.UpdateBook;
 public class UpdateBookCommand
 {
     private readonly BookStoreDbContext _context;
+    private readonly IMapper _mapper;
     public int Id { get; set; }
     public UpdateBookModel BookModel { get; set; }
 
-    public UpdateBookCommand(BookStoreDbContext context)
+    public UpdateBookCommand(BookStoreDbContext context, IMapper mapper)
     {
         _context = context;
+        _mapper = mapper;
     }
 
     public void Handle()
     {
-        Book? book = _context.Books.SingleOrDefault(x => x.Id == Id);
+        if (!_context.Books.Any(x => x.Id == Id)) throw new Exception("Book does not exist!");
 
-        if (book == null) throw new Exception("Book does not exist!");
-
-        if (BookModel.Title != default) book.Title = BookModel.Title;
-        if (BookModel.PageCount != default) book.PageCount = BookModel.PageCount;
-        if (BookModel.PublishDate != default) book.PublishDate = BookModel.PublishDate;
-        if (BookModel.GenreId != default) book.GenreId = BookModel.GenreId;
+        Book book = _mapper.Map<UpdateBookModel, Book>(BookModel);
+        book.Id = Id;
 
         _context.Books.Update(book);
         _context.SaveChanges();

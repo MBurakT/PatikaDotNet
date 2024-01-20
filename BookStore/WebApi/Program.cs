@@ -1,4 +1,6 @@
-// dotnet watch run --project WebApi/WebApi.csproj
+// dotnet watch run --project BookStore/WebApi/WebApi.csproj
+using System;
+using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,8 +17,11 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
+
         builder.Services.AddDbContext<BookStoreDbContext>(opt => opt.UseInMemoryDatabase("BookStoreDB"));
         //builder.Services.AddTransient<DataSeeder>();
+
+        builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -42,6 +47,10 @@ public class Program
 
 
         app.MapControllers();
+
+        // Console.WriteLine(Assembly.GetExecutingAssembly());
+        // Console.WriteLine(typeof(Program).Assembly);
+        // Console.WriteLine();
 
         app.Run();
     }

@@ -1,4 +1,4 @@
-namespace WebApi.Enums;
+namespace WebApi.Utilities.Enums;
 
 enum GenreEnum
 {
