@@ -1,7 +1,10 @@
 // dotnet watch run --project Middleware/Middleware.csproj
+using System;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Middleware.Middlewares;
 
 namespace Middleware;
 
@@ -31,6 +34,54 @@ public class Program
 
         app.UseAuthorization();
 
+        // app.Run(async context => Console.WriteLine("Middleware 1")); //ShortCircuit
+
+
+        // app.Use(async (context, next) =>
+        // {
+        //     Console.WriteLine("Middleware 1 started");
+        //     await next.Invoke();
+        //     Console.WriteLine("Middleware 1 completed");
+        // });
+
+        // app.Use(async (context, next) =>
+        // {
+        //     Console.WriteLine("Middleware 2 started");
+        //     await next.Invoke();
+        //     Console.WriteLine("Middleware 2 completed");
+        // });
+
+        // app.Use(async (context, next) =>
+        // {
+        //     Console.WriteLine("Middleware 3 started");
+        //     await next.Invoke();
+        //     Console.WriteLine("Middleware 3 completed");
+        // });
+
+
+        app.UseHello();
+
+
+        app.Use(async (context, next) =>
+        {
+            Console.WriteLine("Use Middleware triggered.");
+            await next.Invoke();
+        });
+
+        app.Map("/example", internalApp =>
+            internalApp.Run(async context => //ShortCircuit
+            {
+                Console.WriteLine("/example Middleware triggered.");
+                await context.Response.WriteAsync("/example Middleware triggered.");
+            }));
+
+
+        app.MapWhen(x => x.Request.Method == "GET", internalApp =>
+            internalApp.Run(async context => //ShortCircuit
+            {
+                Console.WriteLine("MapWhen Middleware triggered.");
+                await context.Response.WriteAsync("MapWhen Middleware triggered.");
+            }));
 
         app.MapControllers();
 
