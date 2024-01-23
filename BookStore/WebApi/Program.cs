@@ -1,11 +1,11 @@
 // dotnet watch run --project BookStore/WebApi/WebApi.csproj
-using System;
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApi.DBOperations;
+using WebApi.Middlewares;
 
 namespace WebApi;
 
@@ -45,6 +45,7 @@ public class Program
 
         app.UseAuthorization();
 
+        app.UseCustomExceptionMiddleware();
 
         app.MapControllers();
 
