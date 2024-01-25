@@ -25,6 +25,8 @@ public class CreateBookCommand
 
         Book book = _mapper.Map<CreateBookModel, Book>(BookModel);
 
+        if (!_context.Genres.Any(x => x.Id == book.GenreId)) throw new InvalidOperationException("Genre does not exist!");
+
         _context.Books.Add(book);
         _context.SaveChanges();
     }
