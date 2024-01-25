@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using WebApi.Services;
+using WebApi.Utilities.Services;
 
 namespace WebApi.Middlewares;
 

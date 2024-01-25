@@ -1,6 +1,6 @@
 using System;
 
-namespace WebApi.Services;
+namespace WebApi.Utilities.Services;
 
 public class DbLogger : ILoggerService
 {

@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WebApi.Utilities.DBOperations;
 using WebApi.Middlewares;
-using WebApi.Services;
+using WebApi.Utilities.Services;
 
 namespace WebApi;
 

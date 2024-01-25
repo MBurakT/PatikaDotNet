@@ -1,4 +1,4 @@
-namespace WebApi.Services;
+namespace WebApi.Utilities.Services;
 
 public interface ILoggerService
 {
