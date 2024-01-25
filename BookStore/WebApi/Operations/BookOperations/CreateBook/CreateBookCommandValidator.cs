@@ -1,6 +1,6 @@
 using System;
 using FluentValidation;
-using static WebApi.BookOperations.CreateBook.CreateBookCommand;
+using static WebApi.Operations.BookOperations.CreateBook.CreateBookCommand;
 
 namespace WebApi.BookOpertions.CreateBook;
 

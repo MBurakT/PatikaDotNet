@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
 using AutoMapper;
-using Webapi.Entities;
+using WebApi.Entities;
 using WebApi.DBOperations;
 
-namespace WebApi.BookOperations.CreateBook;
+namespace WebApi.Operations.BookOperations.CreateBook;
 
 public class CreateBookCommand
 {

@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using Webapi.Entities;
+using WebApi.Entities;
 using WebApi.DBOperations;
 
-namespace WebApi.BookOperations.DeleteBook;
+namespace WebApi.Operations.BookOperations.DeleteBook;
 
 class DeleteBookCommand
 {

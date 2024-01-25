@@ -1,16 +1,16 @@
 using AutoMapper;
-using Webapi.Entities;
+using WebApi.Entities;
 using WebApi.Utilities.Enums;
-using static WebApi.BookOperations.CreateBook.CreateBookCommand;
-using static WebApi.BookOperations.GetBooks.GetBookCommand;
-using static WebApi.BookOperations.GetBooks.GetBooksQuery;
-using static WebApi.BookOperations.UpdateBook.UpdateBookCommand;
+using static WebApi.Operations.BookOperations.CreateBook.CreateBookCommand;
+using static WebApi.Operations.BookOperations.GetBooks.GetBookCommand;
+using static WebApi.Operations.BookOperations.GetBooks.GetBooksQuery;
+using static WebApi.Operations.BookOperations.UpdateBook.UpdateBookCommand;
 
 namespace WebApi.Utilities.Profiles;
 
-class MappingProfile : Profile
+class BookMappingProfile : Profile
 {
-    public MappingProfile()
+    public BookMappingProfile()
     {
         CreateMap<CreateBookModel, Book>();
         CreateMap<Book, BookViewModel>()

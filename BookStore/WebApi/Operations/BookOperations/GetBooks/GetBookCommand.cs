@@ -1,12 +1,12 @@
 using System;
 using System.Linq;
 using AutoMapper;
-using Webapi.Entities;
+using WebApi.Entities;
 using WebApi.DBOperations;
 
-namespace WebApi.BookOperations.GetBooks;
+namespace WebApi.Operations.BookOperations.GetBooks;
 
-class GetBookCommand
+public class GetBookCommand
 {
     private readonly BookStoreDbContext _context;
     private readonly IMapper _mapper;
