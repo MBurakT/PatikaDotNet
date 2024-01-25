@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using WebApi.DBOperations;
+using WebApi.Utilities.DBOperations;
 using WebApi.Entities;
 
 namespace WebApi.Operations.GenreOperations.GetGenres;

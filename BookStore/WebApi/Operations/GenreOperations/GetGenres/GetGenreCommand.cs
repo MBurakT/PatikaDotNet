@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
-using WebApi.DBOperations;
+using WebApi.Utilities.DBOperations;
 using WebApi.Entities;
 using static WebApi.Operations.BookOperations.GetBooks.GetBookCommand;
 

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 using WebApi.Entities;
-using WebApi.DBOperations;
+using WebApi.Utilities.DBOperations;
 
 namespace WebApi.Operations.BookOperations.DeleteBook;
 

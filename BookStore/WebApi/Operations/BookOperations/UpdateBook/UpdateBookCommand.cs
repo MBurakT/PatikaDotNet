@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using AutoMapper;
 using WebApi.Entities;
-using WebApi.DBOperations;
+using WebApi.Utilities.DBOperations;
 
 namespace WebApi.Operations.BookOperations.UpdateBook;
 
