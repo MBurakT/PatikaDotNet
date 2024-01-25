@@ -1,9 +1,9 @@
 using AutoMapper;
 using WebApi.Entities;
-using static WebApi.Operations.BookOperations.CreateBook.CreateBookCommand;
-using static WebApi.Operations.BookOperations.GetBooks.GetBookCommand;
-using static WebApi.Operations.BookOperations.GetBooks.GetBooksQuery;
-using static WebApi.Operations.BookOperations.UpdateBook.UpdateBookCommand;
+using static WebApi.Utilities.Operations.BookOperations.CreateBook.CreateBookCommand;
+using static WebApi.Utilities.Operations.BookOperations.GetBooks.GetBookCommand;
+using static WebApi.Utilities.Operations.BookOperations.GetBooks.GetBooksQuery;
+using static WebApi.Utilities.Operations.BookOperations.UpdateBook.UpdateBookCommand;
 
 namespace WebApi.Utilities.Profiles;
 

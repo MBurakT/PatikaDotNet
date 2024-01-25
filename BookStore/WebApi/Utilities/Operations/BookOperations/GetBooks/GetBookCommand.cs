@@ -5,7 +5,7 @@ using WebApi.Entities;
 using WebApi.Utilities.DBOperations;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApi.Operations.BookOperations.GetBooks;
+namespace WebApi.Utilities.Operations.BookOperations.GetBooks;
 
 public class GetBookCommand
 {

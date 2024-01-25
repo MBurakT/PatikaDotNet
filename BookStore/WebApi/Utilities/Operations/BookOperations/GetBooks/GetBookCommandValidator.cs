@@ -1,6 +1,6 @@
 using FluentValidation;
 
-namespace WebApi.Operations.BookOperations.GetBooks;
+namespace WebApi.Utilities.Operations.BookOperations.GetBooks;
 
 class GetBookCommandValidator : AbstractValidator<GetBookCommand>
 {

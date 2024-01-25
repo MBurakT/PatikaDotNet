@@ -4,7 +4,7 @@ using AutoMapper;
 using WebApi.Utilities.DBOperations;
 using WebApi.Entities;
 
-namespace WebApi.Operations.GenreOperations.CreateGenres;
+namespace WebApi.Utilities.Operations.GenreOperations.CreateGenres;
 
 public class CreateGenreCommand
 {

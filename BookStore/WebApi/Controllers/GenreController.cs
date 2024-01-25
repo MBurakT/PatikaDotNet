@@ -2,10 +2,10 @@ using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Utilities.DBOperations;
-using WebApi.Operations.GenreOperations.GetGenres;
-using WebApi.Operations.GenreOperations.CreateGenres;
-using WebApi.Operations.GenreOperations.UpdateGenres;
-using WebApi.Operations.GenreOperations.DeleteGenres;
+using WebApi.Utilities.Operations.GenreOperations.GetGenres;
+using WebApi.Utilities.Operations.GenreOperations.CreateGenres;
+using WebApi.Utilities.Operations.GenreOperations.UpdateGenres;
+using WebApi.Utilities.Operations.GenreOperations.DeleteGenres;
 
 namespace WebApi.Controllers;
 

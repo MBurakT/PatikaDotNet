@@ -5,9 +5,9 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Utilities.DBOperations;
 using WebApi.Entities;
-using static WebApi.Operations.BookOperations.GetBooks.GetBookCommand;
+using static WebApi.Utilities.Operations.BookOperations.GetBooks.GetBookCommand;
 
-namespace WebApi.Operations.GenreOperations.GetGenres;
+namespace WebApi.Utilities.Operations.GenreOperations.GetGenres;
 
 public class GetGenreCommand
 {
