@@ -1,8 +1,9 @@
 using AutoMapper;
 using WebApi.Entities;
-using WebApi.Operations.GenreOperations.GetGenres;
-using WebApi.Operations.GenreOperations.CreateGenres;
-using WebApi.Operations.GenreOperations.UpdateGenres;
+using static WebApi.Operations.GenreOperations.CreateGenres.CreateGenreCommand;
+using static WebApi.Operations.GenreOperations.GetGenres.GetGenreCommand;
+using static WebApi.Operations.GenreOperations.GetGenres.GetGenresQuery;
+using static WebApi.Operations.GenreOperations.UpdateGenres.UpdateGenreCommand;
 
 namespace WebApi.Utilities.Profiles;
 
@@ -10,9 +11,9 @@ class GenreMappingProfile : Profile
 {
     public GenreMappingProfile()
     {
-        CreateMap<Genre, GetGenresQuery.GenreQueryViewModel>();
-        CreateMap<Genre, GetGenreCommand.GenreCommandViewModel>();
-        CreateMap<CreateGenreCommand.CreateGenreViewModel, Genre>();
-        CreateMap<UpdateGenreCommand.UpdateGenreViewModel, Genre>();
+        CreateMap<Genre, GenreQueryViewModel>();
+        CreateMap<Genre, GenreCommandViewModel>();
+        CreateMap<CreateGenreViewModel, Genre>();
+        CreateMap<UpdateGenreViewModel, Genre>();
     }
 }
