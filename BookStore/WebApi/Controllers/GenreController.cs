@@ -67,7 +67,7 @@ public class GenreController : ControllerBase
     [HttpDelete("{id:int}")]
     public IActionResult DeleteGenre(int id)
     {
-        DeleteGenreCommand command = new(_context, _mapper, id);
+        DeleteGenreCommand command = new(_context, id);
         DeleteGenreCommandValidator validator = new();
 
         validator.ValidateAndThrow(command);

@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using AutoMapper;
 using WebApi.Utilities.DBOperations;
 using WebApi.Entities;
 
@@ -9,13 +8,12 @@ namespace WebApi.Utilities.Operations.GenreOperations.DeleteGenres;
 public class DeleteGenreCommand
 {
     readonly BookStoreDbContext _context;
-    readonly IMapper _mapper;
+
     public int Id { get; }
 
-    public DeleteGenreCommand(BookStoreDbContext context, IMapper mapper, int id)
+    public DeleteGenreCommand(BookStoreDbContext context, int id)
     {
         _context = context;
-        _mapper = mapper;
         Id = id;
     }
 
@@ -25,6 +23,7 @@ public class DeleteGenreCommand
 
         if (genre is null) throw new InvalidOperationException("Genre does not exist!");
 
+        _context.Books.Where(x => x.GenreId == Id).ToList().ForEach(x => x.GenreId = 1);
         _context.Genres.Remove(genre);
         _context.SaveChanges();
     }
