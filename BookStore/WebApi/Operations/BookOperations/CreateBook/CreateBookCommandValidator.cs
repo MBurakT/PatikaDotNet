@@ -1,16 +1,15 @@
-using System;
 using FluentValidation;
-using static WebApi.Operations.BookOperations.CreateBook.CreateBookCommand;
+using WebApi.Operations.BookOperations.CreateBook;
 
 namespace WebApi.BookOpertions.CreateBook;
 
-class CreateBookCommandValidator : AbstractValidator<CreateBookModel>
+class CreateBookCommandValidator : AbstractValidator<CreateBookCommand>
 {
     public CreateBookCommandValidator()
     {
-        RuleFor(bookModel => bookModel.GenreId).NotNull().GreaterThan(0);
-        RuleFor(bookModel => bookModel.PageCount).NotNull().GreaterThan(0);
-        RuleFor(bookModel => bookModel.PublishDate).NotEmpty().LessThan(DateTime.Today);
-        RuleFor(bookModel => bookModel.Title).NotEmpty().MinimumLength(4);
+        RuleFor(x => x.BookModel.Title).NotNull().NotEmpty().MinimumLength(4);
+        RuleFor(x => x.BookModel.PageCount).NotNull().GreaterThan(0);
+        RuleFor(x => x.BookModel.PublishDate).NotNull().LessThan(System.DateTime.Today);
+        RuleFor(x => x.BookModel.GenreId).NotNull().GreaterThan(0);
     }
 }

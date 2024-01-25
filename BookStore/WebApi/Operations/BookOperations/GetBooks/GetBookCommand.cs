@@ -3,6 +3,7 @@ using System.Linq;
 using AutoMapper;
 using WebApi.Entities;
 using WebApi.DBOperations;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Operations.BookOperations.GetBooks;
 
@@ -12,15 +13,16 @@ public class GetBookCommand
     private readonly IMapper _mapper;
     public int Id { get; set; }
 
-    public GetBookCommand(BookStoreDbContext context, IMapper mapper)
+    public GetBookCommand(BookStoreDbContext context, IMapper mapper, int id)
     {
         _context = context;
         _mapper = mapper;
+        Id = id;
     }
 
     public BookViewModel Handle()
     {
-        Book? book = _context.Books.SingleOrDefault(x => x.Id == Id);
+        Book? book = _context.Books.Where(x => x.Id == Id).Include(x => x.Genre).SingleOrDefault();
         if (book == null) throw new InvalidOperationException("Book does not exist!");
 
         return _mapper.Map<Book, BookViewModel>(book);

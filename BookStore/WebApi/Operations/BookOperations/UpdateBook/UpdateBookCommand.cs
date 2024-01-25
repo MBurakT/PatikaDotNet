@@ -10,13 +10,15 @@ public class UpdateBookCommand
 {
     private readonly BookStoreDbContext _context;
     private readonly IMapper _mapper;
-    public int Id { get; set; }
-    public UpdateBookModel BookModel { get; set; }
+    public int Id { get; }
+    public UpdateBookModel BookModel { get; }
 
-    public UpdateBookCommand(BookStoreDbContext context, IMapper mapper)
+    public UpdateBookCommand(BookStoreDbContext context, IMapper mapper, int id, UpdateBookModel bookModel)
     {
         _context = context;
         _mapper = mapper;
+        Id = id;
+        BookModel = bookModel;
     }
 
     public void Handle()

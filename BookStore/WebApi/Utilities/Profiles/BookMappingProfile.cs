@@ -1,6 +1,5 @@
 using AutoMapper;
 using WebApi.Entities;
-using WebApi.Utilities.Enums;
 using static WebApi.Operations.BookOperations.CreateBook.CreateBookCommand;
 using static WebApi.Operations.BookOperations.GetBooks.GetBookCommand;
 using static WebApi.Operations.BookOperations.GetBooks.GetBooksQuery;
@@ -14,10 +13,10 @@ class BookMappingProfile : Profile
     {
         CreateMap<CreateBookModel, Book>();
         CreateMap<Book, BookViewModel>()
-            .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => ((GenreEnum)src.GenreId).ToString()))
+            .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
             .ForMember(dest => dest.PublishDate, opt => opt.MapFrom(src => src.PublishDate.Date.ToString("dd.MM.yyyy")));
         CreateMap<Book, BooksViewModel>()
-            .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => ((GenreEnum)src.GenreId).ToString()))
+            .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
             .ForMember(dest => dest.PublishDate, opt => opt.MapFrom(src => src.PublishDate.Date.ToString("dd.MM.yyyy")));
         CreateMap<UpdateBookModel, Book>();
     }

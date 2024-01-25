@@ -6,6 +6,6 @@ class GetBookCommandValidator : AbstractValidator<GetBookCommand>
 {
     public GetBookCommandValidator()
     {
-        RuleFor(x => x.Id).NotNull().NotEmpty().GreaterThan(0);
+        RuleFor(x => x.Id).NotNull().GreaterThan(0);
     }
 }
