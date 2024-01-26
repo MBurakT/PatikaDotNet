@@ -22,7 +22,7 @@ public class GetBookCommand
 
     public BookViewModel Handle()
     {
-        Book? book = _context.Books.Where(x => x.Id == Id).Include(x => x.Genre).SingleOrDefault();
+        Book? book = _context.Books.Where(x => x.Id == Id).Include(x => x.Author).Include(x => x.Genre).SingleOrDefault();
         if (book == null) throw new InvalidOperationException("Book does not exist!");
 
         return _mapper.Map<Book, BookViewModel>(book);
@@ -34,5 +34,6 @@ public class GetBookCommand
         public int PageCount { get; set; }
         public string PublishDate { get; set; }
         public string Genre { get; set; }
+        public string Author { get; set; }
     }
 }

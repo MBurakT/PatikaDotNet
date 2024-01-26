@@ -1,6 +1,7 @@
 using FluentValidation;
+using WebApi.Utilities.Operations.BookOperations.UpdateBook;
 
-namespace WebApi.Utilities.Operations.BookOperations.UpdateBook;
+namespace WebApi.Utilities.Validators.BookValidators;
 
 class UpdateBookCommandValidator : AbstractValidator<UpdateBookCommand>
 {
@@ -11,5 +12,6 @@ class UpdateBookCommandValidator : AbstractValidator<UpdateBookCommand>
         RuleFor(x => x.BookModel.PageCount).NotNull().GreaterThan(0);
         RuleFor(x => x.BookModel.PublishDate).NotNull().LessThan(System.DateTime.Today);
         RuleFor(x => x.BookModel.GenreId).NotNull().GreaterThan(0);
+        RuleFor(x => x.BookModel.AuthorId).NotNull().GreaterThan(0);
     }
 }

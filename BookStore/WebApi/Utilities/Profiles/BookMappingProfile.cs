@@ -14,9 +14,11 @@ class BookMappingProfile : Profile
         CreateMap<CreateBookModel, Book>();
         CreateMap<Book, BookViewModel>()
             .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
+            .ForMember(dest => dest.Author, opt => opt.MapFrom(src => $"{src.Author.Name} {src.Author.Surname}"))
             .ForMember(dest => dest.PublishDate, opt => opt.MapFrom(src => src.PublishDate.Date.ToString("dd.MM.yyyy")));
         CreateMap<Book, BooksViewModel>()
             .ForMember(dest => dest.Genre, opt => opt.MapFrom(src => src.Genre.Name))
+            .ForMember(dest => dest.Author, opt => opt.MapFrom(src => $"{src.Author.Name} {src.Author.Surname}"))
             .ForMember(dest => dest.PublishDate, opt => opt.MapFrom(src => src.PublishDate.Date.ToString("dd.MM.yyyy")));
         CreateMap<UpdateBookModel, Book>();
     }

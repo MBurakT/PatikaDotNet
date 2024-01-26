@@ -6,6 +6,7 @@ using WebApi.Utilities.Operations.GenreOperations.GetGenres;
 using WebApi.Utilities.Operations.GenreOperations.CreateGenres;
 using WebApi.Utilities.Operations.GenreOperations.UpdateGenres;
 using WebApi.Utilities.Operations.GenreOperations.DeleteGenres;
+using WebApi.Utilities.Validators.GenreValidators;
 
 namespace WebApi.Controllers;
 
@@ -26,6 +27,7 @@ public class GenreController : ControllerBase
     public IActionResult GetGenres()
     {
         GetGenresQuery query = new(_context, _mapper);
+        
         return Ok(query.Handle());
     }
 
