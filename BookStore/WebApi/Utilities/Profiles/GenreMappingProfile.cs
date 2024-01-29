@@ -7,7 +7,7 @@ using static WebApi.Utilities.Operations.GenreOperations.UpdateGenres.UpdateGenr
 
 namespace WebApi.Utilities.Profiles;
 
-class GenreMappingProfile : Profile
+public class GenreMappingProfile : Profile
 {
     public GenreMappingProfile()
     {

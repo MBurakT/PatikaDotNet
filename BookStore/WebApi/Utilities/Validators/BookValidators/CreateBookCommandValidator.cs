@@ -3,7 +3,7 @@ using WebApi.Utilities.Operations.BookOperations.CreateBook;
 
 namespace WebApi.Utilities.Validators.BookValidators;
 
-class CreateBookCommandValidator : AbstractValidator<CreateBookCommand>
+public class CreateBookCommandValidator : AbstractValidator<CreateBookCommand>
 {
     public CreateBookCommandValidator()
     {

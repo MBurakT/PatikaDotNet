@@ -7,7 +7,7 @@ using static WebApi.Utilities.Operations.BookOperations.UpdateBook.UpdateBookCom
 
 namespace WebApi.Utilities.Profiles;
 
-class BookMappingProfile : Profile
+public class BookMappingProfile : Profile
 {
     public BookMappingProfile()
     {

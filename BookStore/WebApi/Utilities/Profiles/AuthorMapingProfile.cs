@@ -7,7 +7,7 @@ using static WebApi.Utilities.Operations.AuthorOperations.UpdateAuthors.UpdateAu
 
 namespace WebApi.Utilities.Profiles;
 
-class AuthorMappingProfile : Profile
+public class AuthorMappingProfile : Profile
 {
     public AuthorMappingProfile()
     {
