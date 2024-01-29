@@ -7,10 +7,10 @@ namespace WebApi.Utilities.Operations.BookOperations.DeleteBook;
 
 class DeleteBookCommand
 {
-    private readonly BookStoreDbContext _context;
+    private readonly IBookStoreDbContext _context;
     public int Id { get; }
 
-    public DeleteBookCommand(BookStoreDbContext context, int id)
+    public DeleteBookCommand(IBookStoreDbContext context, int id)
     {
         _context = context;
         Id = id;

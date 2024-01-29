@@ -9,11 +9,11 @@ namespace WebApi.Utilities.Operations.BookOperations.GetBooks;
 
 public class GetBookCommand
 {
-    private readonly BookStoreDbContext _context;
+    private readonly IBookStoreDbContext _context;
     private readonly IMapper _mapper;
     public int Id { get; set; }
 
-    public GetBookCommand(BookStoreDbContext context, IMapper mapper, int id)
+    public GetBookCommand(IBookStoreDbContext context, IMapper mapper, int id)
     {
         _context = context;
         _mapper = mapper;

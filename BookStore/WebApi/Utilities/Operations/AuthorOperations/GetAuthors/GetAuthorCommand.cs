@@ -11,11 +11,12 @@ namespace WebApi.Utilities.Operations.AuthorOperations.GetAuthors;
 
 public class GetAuthorCommand
 {
-    readonly BookStoreDbContext _context;
+    readonly IBookStoreDbContext _context;
     readonly IMapper _mapper;
+
     public int Id { get; }
 
-    public GetAuthorCommand(BookStoreDbContext context, IMapper mapper, int id)
+    public GetAuthorCommand(IBookStoreDbContext context, IMapper mapper, int id)
     {
         _context = context;
         _mapper = mapper;

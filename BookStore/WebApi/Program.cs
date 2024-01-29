@@ -20,7 +20,7 @@ public class Program
         builder.Services.AddControllers();
 
         builder.Services.AddDbContext<BookStoreDbContext>(opt => opt.UseInMemoryDatabase("BookStoreDB"));
-        //builder.Services.AddTransient<DataSeeder>();
+        builder.Services.AddScoped<IBookStoreDbContext>(provider => provider.GetService<BookStoreDbContext>());
 
         builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
 

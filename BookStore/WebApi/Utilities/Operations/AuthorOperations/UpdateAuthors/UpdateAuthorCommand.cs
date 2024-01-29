@@ -8,13 +8,13 @@ namespace WebApi.Utilities.Operations.AuthorOperations.UpdateAuthors;
 
 public class UpdateAuthorCommand
 {
-    readonly BookStoreDbContext _context;
+    readonly IBookStoreDbContext _context;
     readonly IMapper _mapper;
 
     public int Id { get; }
     public UpdateAuthorViewModel Author { get; }
 
-    public UpdateAuthorCommand(BookStoreDbContext context, IMapper mapper, UpdateAuthorViewModel author, int id)
+    public UpdateAuthorCommand(IBookStoreDbContext context, IMapper mapper, UpdateAuthorViewModel author, int id)
     {
         _context = context;
         _mapper = mapper;
@@ -29,7 +29,7 @@ public class UpdateAuthorCommand
         Author author = _mapper.Map<UpdateAuthorViewModel, Author>(Author);
         author.Id = Id;
 
-        _context.Update(author);
+        _context.Authors.Update(author);
         _context.SaveChanges();
     }
 
