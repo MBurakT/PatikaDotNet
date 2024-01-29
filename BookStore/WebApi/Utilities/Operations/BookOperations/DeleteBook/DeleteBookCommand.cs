@@ -5,7 +5,7 @@ using WebApi.Utilities.DBOperations;
 
 namespace WebApi.Utilities.Operations.BookOperations.DeleteBook;
 
-class DeleteBookCommand
+public class DeleteBookCommand
 {
     private readonly IBookStoreDbContext _context;
     public int Id { get; }
@@ -20,7 +20,7 @@ class DeleteBookCommand
     {
         Book? book = _context.Books.SingleOrDefault(x => x.Id == Id);
 
-        if (book == null) throw new Exception("Book does not exist!");
+        if (book == null) throw new InvalidOperationException("Book does not exist!");
 
         _context.Books.Remove(book);
         _context.SaveChanges();

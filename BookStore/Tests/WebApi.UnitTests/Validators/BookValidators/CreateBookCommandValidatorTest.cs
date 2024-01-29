@@ -6,7 +6,7 @@ using WebApi.Utilities.Validators.BookValidators;
 using FluentValidation.Results;
 using FluentAssertions;
 
-namespace Validators;
+namespace Validators.BookValidators;
 
 public class CreateBookCommandValidatorTest : IClassFixture<CommonTestFixture>
 {
