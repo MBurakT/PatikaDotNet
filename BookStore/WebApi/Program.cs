@@ -7,6 +7,10 @@ using Microsoft.Extensions.Hosting;
 using WebApi.Utilities.DBOperations;
 using WebApi.Middlewares;
 using WebApi.Utilities.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System;
 
 namespace WebApi;
 
@@ -17,6 +21,21 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
+        builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
+        {
+            opt.TokenValidationParameters = new TokenValidationParameters()
+            {
+                ValidateAudience = true,
+                ValidateIssuer = true,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = builder.Configuration["Token:Issuer"],
+                ValidAudience = builder.Configuration["Token:Audience"],
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
+                ClockSkew = TimeSpan.Zero
+            };
+        });
+
         builder.Services.AddControllers();
 
         builder.Services.AddDbContext<BookStoreDbContext>(opt => opt.UseInMemoryDatabase("BookStoreDB"));
@@ -43,6 +62,8 @@ public class Program
             app.UseSwagger();
             app.UseSwaggerUI();
         }
+
+        app.UseAuthentication();
 
         app.UseHttpsRedirection();
 
