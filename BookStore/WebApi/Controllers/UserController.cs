@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using WebApi.Operations.UserOperations.CreateTokens;
 using WebApi.Operations.UserOperations.CreateUsers;
 using WebApi.Utilities.DBOperations;
+using WebApi.Utilities.Operations.UserOperations.CreateTokens;
 using WebApi.Utilities.TokenOperations.Models;
 
 namespace WebApi.Controllers;
@@ -39,6 +40,14 @@ public class UserController : ControllerBase
     public ActionResult<Token> CreateToken([FromBody] CreateTokenCommand.CreateTokenModel tokenModel)
     {
         CreateTokenCommand command = new(_context, _mapper, _configuration, tokenModel);
+
+        return command.Handle();
+    }
+
+    [HttpGet("refreshtoken")]
+    public ActionResult<Token> RefreshToken([FromQuery] string refreshToken)
+    {
+        CreateRefreshTokenCommand command = new(_context, _configuration, new CreateRefreshTokenCommand.CreateRefreshTokenModel() { RefreshToken = refreshToken });
 
         return command.Handle();
     }

@@ -21,14 +21,4 @@ public class User
         Email = email;
         Password = password;
     }
-
-    public User(string name, string surname, string email, string password, string? refreshToken, DateTime? refreshTokenExpireDate)
-    {
-        Name = name;
-        Surname = surname;
-        Email = email;
-        Password = password;
-        RefreshToken = refreshToken;
-        RefreshTokenExpireDate = refreshTokenExpireDate;
-    }
 }
